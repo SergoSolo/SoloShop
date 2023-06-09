@@ -1,0 +1,17 @@
+<!DOCTYPE html> 
+<html lang="ru">
+{% load static %}
+{% load thumbnail %}
+  <head>
+  </head>
+  <body>
+    {% for product in products %}
+      <ul> 
+        {% thumbnail product.image "167x232" crop="center" upscale=True as im %}
+          <img class="card-img my-2" src="{{ im.url }}">
+        {% endthumbnail %}
+        <a href="{% url 'game_detail' product.slug %}">{{ product.name }}</a>
+      </ul> 
+    {% endfor %} 
+  </body>
+</html> 
